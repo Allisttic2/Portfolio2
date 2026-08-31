@@ -1,0 +1,6 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+body { background: #ffffff; color: #222; }
+body.dark { background: #1e1e2e; color: #eee; }
