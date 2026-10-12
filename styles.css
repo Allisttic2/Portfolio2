@@ -1,3 +1,23 @@
+/* ===== Grund ===== */
+body {
+    font-family: Arial, sans-serif;
+    text-align: left;
+    font-size: 1.25rem;
+    background: #ffe8e6;   /* fin ljus röd (mjuk rosé) */
+    color: #4a1c1c;        /* mörk rödbrun text */
+    margin: 0;
+}
+
+body.dark {
+    background: #3d1111;   /* djup mörk röd */
+    color: #ffe9e9;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ===== Header och navigation ===== */
 header {
     display: flex;
     justify-content: space-between;
@@ -20,42 +40,35 @@ nav a {
     margin-left: 12px;
     text-decoration: none;
     display: inline-block;
-    padding: 8px 18px;          /* ger knappen "fyllning" */
-    border-radius: 8px;         /* rundade hörn = knappkänsla */
-    background: #e58c8c;        /* 🌸 lite mörkare röd i ljust läge */
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: #e58c8c;
     color: #4a1c1c;
     transition: background 0.2s;
 }
 
-nav a:hover {
-    background: #d97373;        /* lite mörkare vid hovra – feedback */
+nav a:hover { background: #d97373; }
+
+nav a.aktiv {
+    background: #c62828;
+    color: #fff;
 }
 
 body.dark nav a {
-    background: #a34d4d;        /* 🌑 lite ljusare röd i mörkt läge */
+    background: #a34d4d;
     color: #ffe9e9;
 }
 
-body.dark nav a:hover {
-    background: #b85c5c;
-}
+body.dark nav a:hover { background: #b85c5c; }
 
-
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #ffe8e6;   /* 🌸 fin ljus röd (mjuk rosé) */
-    color: #4a1c1c;        /* mörk rödbrun text – kontrast mot bakgrunden */
-}
-
-body.dark {
-    background: #3d1111;   /* 🌑 djup mörk röd */
-    color: #ffe9e9;        /* ljus text i mörkt läge */
+body.dark nav a.aktiv {
+    background: #ff6b6b;
+    color: #3d1111;
 }
 
 #theme-toggle {
-    font-family: inherit;   /* ← ny */
-    font-size: 1.125rem;     /* ← ny */
+    font-family: inherit;
+    font-size: 1.125rem;
     margin-left: 12px;
     padding: 8px 18px;
     border: none;
@@ -66,65 +79,29 @@ body.dark {
     transition: background 0.2s;
 }
 
-
-#theme-toggle:hover {
-    background: #d97373;
-}
+#theme-toggle:hover { background: #d97373; }
 
 body.dark #theme-toggle {
     background: #a34d4d;
     color: #ffe9e9;
 }
 
-body.dark #theme-toggle:hover {
-    background: #b85c5c;
-}
+body.dark #theme-toggle:hover { background: #b85c5c; }
 
+/* ===== Innehåll ===== */
 section {
     padding: 60px 40px;
-    max-width: 900px;      /* ← tillbaka till 900px */
-    margin: 0 auto;        /* ← giltig värde: centrerar (0 topp/botten, auto vänster/höger) */
+    max-width: 900px;
+    margin: 0 auto;
     scroll-margin-top: 80px;
 }
-
-
 
 h2 {
     font-size: clamp(2.2rem, 8vw, 5rem);
     margin-bottom: 20px;
 }
 
-/* Projektkort i rad */
-.projekt-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.projekt-kort {
-    background: rgba(0, 0, 0, 0.06);   /* subtil kontrast mot bakgrunden */
-    border-radius: 10px;
-    padding: 30px;
-    width: 220px;
-    max-width: 100%;
-    min-height: 140px;
-}
-
-body.dark .projekt-kort {
-    background: rgba(255, 255, 255, 0.08);   /* syns i mörkt läge */
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    text-align: left;
-    font-size: 1.25rem;
-    background: #ffe8e6;
-    color: #4a1c1c;
-}
-
-
+/* Om mig */
 .om-layout {
     display: flex;
     justify-content: space-between;
@@ -132,9 +109,7 @@ body {
     align-items: center;
 }
 
-.om-text {
-    max-width: 55%;
-}
+.om-text { max-width: 55%; }
 
 .profilbild {
     width: 200px;
@@ -142,33 +117,39 @@ body {
     flex-shrink: 0;
 }
 
+/* Projektkort */
+.projekt-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.projekt-kort {
+    background: rgba(0, 0, 0, 0.06);
+    border: 2px dashed rgba(198, 40, 40, 0.4);   /* streckad rand = "under construction" */
+    border-radius: 10px;
+    padding: 30px;
+    width: 220px;
+    max-width: 100%;
+    min-height: 140px;
+}
+
+body.dark .projekt-kort { background: rgba(255, 255, 255, 0.08); }
+
 .projekt-link {
     display: inline-block;
     margin-top: 15px;
     text-decoration: none;
-    color: #c62828;        /* din mörka accentröd */
+    color: #c62828;
     font-weight: bold;
 }
 
-.projekt-link:hover {
-    text-decoration: underline;
-}
+.projekt-link:hover { text-decoration: underline; }
 
-body.dark .projekt-link {
-    color: #ff6b6b;        /* ljusare i mörkt läge */
-}
+body.dark .projekt-link { color: #ff6b6b; }
 
-.projekt-kort {
-    border: 2px dashed rgba(198, 40, 40, 0.4);   /* streckad rand = "under construction" */
-}
-
-
-/* ===== Responsivt: anpassning efter skärmstorlek ===== */
-img {
-    max-width: 100%;
-}
-
-/* Surfplatta och mindre */
+/* ===== Responsivt ===== */
 @media (max-width: 800px) {
     header {
         flex-direction: column;
@@ -183,36 +164,20 @@ img {
         gap: 8px;
     }
 
-    nav a,
-    #theme-toggle {
-        margin-left: 0;
-    }
+    nav a, #theme-toggle { margin-left: 0; }
 
-    section {
-        padding: 40px 20px;
-    }
+    section { padding: 40px 20px; }
 
     .om-layout {
         flex-direction: column-reverse;
         text-align: center;
     }
 
-    .om-text {
-        max-width: 100%;
-    }
+    .om-text { max-width: 100%; }
 }
 
-/* Mobil */
 @media (max-width: 500px) {
-    body {
-        font-size: 1.05rem;
-    }
-
-    .projekt-kort {
-        width: 100%;
-    }
-
-    .profilbild {
-        width: 150px;
-    }
+    body { font-size: 1.05rem; }
+    .projekt-kort { width: 100%; }
+    .profilbild { width: 150px; }
 }
